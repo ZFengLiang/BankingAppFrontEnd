@@ -59,6 +59,7 @@
 <script>
 import axios from "axios";
 import apiClient from "@/utils/apiClient";
+  import { API_ENDPOINTS } from "@/config"
 
 export default {
   name: "ATMView",
@@ -88,7 +89,7 @@ export default {
   methods: {
     async fetchAccounts() {
       try {
-        const res = await apiClient.get("/api/atm/accounts");
+        const res = await apiClient.get(API_ENDPOINTS.ATM);
         this.accounts = res.data;
       } catch {
         this.message = "Failed to load accounts.";
@@ -117,7 +118,7 @@ export default {
       }
 
       try {
-        await apiClient.post("/api/atm/deposit", {
+        await apiClient.post(API_ENDPOINTS.ATMDeposit, {
           accountId: this.selectedAccountId,
           amount: this.amount,
         });
@@ -145,7 +146,7 @@ export default {
       }
 
       try {
-        await apiClient.post("/api/atm/withdraw", {
+        await apiClient.post(API_ENDPOINTS.ATMWithdraw, {
           accountId: this.selectedAccountId,
           amount: this.amount,
         });
