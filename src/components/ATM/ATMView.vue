@@ -58,6 +58,7 @@
 
 <script>
 import axios from "axios";
+import apiClient from "@/utils/apiClient";
 
 export default {
   name: "ATMView",
@@ -87,7 +88,7 @@ export default {
   methods: {
     async fetchAccounts() {
       try {
-        const res = await axios.get("/api/atm/accounts");
+        const res = await apiClient.get("/api/atm/accounts");
         this.accounts = res.data;
       } catch {
         this.message = "Failed to load accounts.";
@@ -116,7 +117,7 @@ export default {
       }
 
       try {
-        await axios.post("/api/atm/deposit", {
+        await apiClient.post("/api/atm/deposit", {
           accountId: this.selectedAccountId,
           amount: this.amount,
         });
@@ -144,7 +145,7 @@ export default {
       }
 
       try {
-        await axios.post("/api/atm/withdraw", {
+        await apiClient.post("/api/atm/withdraw", {
           accountId: this.selectedAccountId,
           amount: this.amount,
         });
