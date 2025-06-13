@@ -17,8 +17,11 @@ export const API_ENDPOINTS = {
     employee: `${API_BASE_URL}employee`,
     usertransaction: `${API_BASE_URL}transactions/user`,
     searchIban: `${API_BASE_URL}transactions/search-iban`,
-    
 
+    ATM: `${API_BASE_URL}atm/accounts`,
+    ATMDeposit: `${API_BASE_URL}/atm/deposit`,
+    ATMWithdraw: `${API_BASE_URL}/atm/withdraw`,
+    
     //users
     users: `${API_BASE_URL}user`,
     account: `${API_BASE_URL}account`,
